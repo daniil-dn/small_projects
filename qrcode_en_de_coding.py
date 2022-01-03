@@ -4,7 +4,7 @@ import qrcode
 from PIL import Image
 import cv2 as cv
 
-data = 'Don\'t forget to drink some water'
+data = 'Don\'t forget to drink somnle water'
 
 qr = qrcode.QRCode(version=1, box_size=10, border=5)
 qr.add_data(data)
