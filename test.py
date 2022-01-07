@@ -139,5 +139,104 @@ def anagrams(word, words):
     return list_out
 
 
-print(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']), ['aabb', 'bbaa'])
-print(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']), ['carer', 'racer'])
+# print(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']), ['aabb', 'bbaa'])
+# print(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']), ['carer', 'racer'])
+
+
+def find_it(seq):
+    num_count_dict = {}
+    for n in range(len(seq)):
+        item = seq[n]
+        if num_count_dict.get(item, None):  # if i have already have this key in dict
+            num_count_dict[item] += 1
+        else:  # if the key is new for the dict
+            num_count_dict[item] = 1
+    for (k, v) in num_count_dict.items():
+        if v % 2 != 0:
+            return k
+
+
+find_it([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1])
+
+
+def num_uni(default_num, input_sign_num):
+    if input_sign_num is None:
+        return default_num
+    else:
+        input_sign_num = input_sign_num.split()
+        if input_sign_num[0] == '+':
+            return default_num + int(input_sign_num[1])
+        elif input_sign_num[0] == "-":
+            return default_num - int(input_sign_num[1])
+        elif input_sign_num[0] == "*":
+            return default_num * int(input_sign_num[1])
+        elif input_sign_num[0] == "//":
+            return default_num / int(input_sign_num[1])
+        return input_sign_num
+
+
+def zero(n=None):
+    return num_uni(0, n)
+
+
+print(zero('+ 9'))
+
+
+# your code here
+def one(n=None):
+    return num_uni(1, n)
+
+
+def two(n=None):
+    return num_uni(2, n)
+
+
+def three(n=None):
+    return num_uni(3, n)
+
+
+def four(n=None):
+    return num_uni(4, n)
+
+
+def five(n=None):
+    return num_uni(5, n)
+
+
+def six(n=None):
+    return num_uni(6, n)
+
+
+def seven(n=None):
+    return num_uni(7, n)
+
+
+def eight(n=None):
+    return num_uni(8, n)
+
+
+def nine(n=None):
+    return num_uni(9, n)
+
+
+def plus(num=None):
+    if not num is None:
+        return f"+ {num}"
+
+
+def minus(num=None):
+    if not num is None:
+        return f"- {num}"
+
+
+def times(num=None):
+    if not num is None:
+        return f"* {num}"
+
+
+def divided_by(num=None):
+    if not num is None:
+        return f"/ {num}"
+
+
+print(five(minus(two())))
