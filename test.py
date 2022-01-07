@@ -179,10 +179,6 @@ def zero(n=None):
     return num_uni(0, n)
 
 
-print(zero('+ 9'))
-
-
-# your code here
 def one(n=None):
     return num_uni(1, n)
 
@@ -239,4 +235,14 @@ def divided_by(num=None):
         return f"/ {num}"
 
 
-print(five(minus(two())))
+def fabonacci(n):
+    pass
+
+
+def factorial(x):
+    if x == 1:
+        return 1
+    return x + factorial(x - 1)
+
+
+print(factorial(5))
