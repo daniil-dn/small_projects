@@ -97,8 +97,8 @@ def is_pangram_2(s):
 
 
 pangram = "Th quick, brown fox jumps ovr th lazy dog!"
-print(is_pangram(pangram), True)
-print(is_pangram_2(pangram), True)
+# print(is_pangram(pangram), True)
+# print(is_pangram_2(pangram), True)
 n = 5
 max_row = [(n + 1) if (n + 1) % 2 != 0 else None for n in range(n)]
 
@@ -107,21 +107,37 @@ def row_sum_odd_numbers(n):
     num_count = 0
     for i in range(n):
         num_count += (i + 1) * 2
-    print('all nums: ', num_count)
+    # print('all nums: ', num_count)
 
     max_row = [n + 1 if (n + 1) % 2 != 0 else None for n in range(num_count)]
-    print(max_row)
+    # print(max_row)
     odd_nums_list = list(filter(lambda x: x is not None, max_row))
-    print(odd_nums_list)
+    # print(odd_nums_list)
     list_rows = []
     for row in range(n):
         list_rows.append(odd_nums_list[:row + 1])
         odd_nums_list = odd_nums_list[row + 1:]
-    print(list_rows)
+    # print(list_rows)
     sum = 0
     for num in list_rows[-1]:
         sum += num
     return sum
 
 
-print(row_sum_odd_numbers(41))
+# print(row_sum_odd_numbers(41))
+
+def anagrams(word, words):
+    word_sorted_letters = list(word)
+    word_sorted_letters = sorted(word)
+    # print("the word's letters are", word_sorted_letters)
+    list_out = []
+    for word_from_words in words:
+
+        sorted_letters = sorted(list(word_from_words))
+        if sorted_letters == word_sorted_letters:
+            list_out.append(word_from_words)
+    return list_out
+
+
+print(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']), ['aabb', 'bbaa'])
+print(anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']), ['carer', 'racer'])
