@@ -40,7 +40,7 @@ def unique_in_order(iterable):
     return list_out
 
 
-print(unique_in_order('ACccC'), ['A', 'B', 'C', 'D', 'A', 'B'])
+# print(unique_in_order('ACccC'), ['A', 'B', 'C', 'D', 'A', 'B'])
 
 
 def to_jaden_case(string):
@@ -52,5 +52,52 @@ def to_jaden_case(string):
 
 
 quote = "How can mirrors be real if our eyes aren't real"
-print(to_jaden_case(quote), "How Can Mirrors Be Real If Our Eyes Aren't Real")
-print(to_jaden_case(quote), "Aren't Real")
+
+
+# print(to_jaden_case(quote), "How Can Mirrors Be Real If Our Eyes Aren't Real")
+# print(to_jaden_case(quote), "Aren't Real")
+
+
+def digital_root(n):
+    sum = 0
+    for i in str(n):
+        sum += int(i)
+    if not sum < 10:
+        sum = digital_root(sum)
+    # print(sum)
+    return sum
+
+
+# print(digital_root(942))
+
+
+import string
+
+
+def is_pangram(s):
+    s = s.lower()
+    alpha_list = [_ for _ in string.ascii_lowercase]
+    for sym in s:
+        if sym in alpha_list:
+            alpha_list.remove(sym)
+
+    if len(alpha_list) == 0:
+        return True
+    else:
+        return False
+
+
+import string
+
+
+def is_pangram_2(s):
+    l = set(string.ascii_lowercase)
+    r = set(s.lower())
+    return l <= r
+
+
+pangram = "Th quick, brown fox jumps ovr th lazy dog!"
+print(is_pangram(pangram), True)
+print(is_pangram_2(pangram), True)
+n = 5
+max_row = [(n + 1) if (n + 1) % 2 != 0 else None for n in range(n)]
