@@ -101,3 +101,21 @@ print(is_pangram(pangram), True)
 print(is_pangram_2(pangram), True)
 n = 5
 max_row = [(n + 1) if (n + 1) % 2 != 0 else None for n in range(n)]
+
+
+def row_sum_odd_numbers(n):
+    num_count = 0
+    for i in range(n):
+        num_count += (i + 1) * 2
+    print('all nums: ', num_count)
+
+    max_row = [n + 1 if (n + 1) % 2 != 0 else None for n in range(num_count)]
+    print(max_row)
+    odd_nums = list(filter(lambda x: x is not None, max_row))
+    print(odd_nums)
+    list_rows = []
+    for row in range(len(odd_nums)):
+        list_rows.append(odd_nums[:row])
+
+
+row_sum_odd_numbers(4)
