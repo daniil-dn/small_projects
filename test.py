@@ -111,11 +111,17 @@ def row_sum_odd_numbers(n):
 
     max_row = [n + 1 if (n + 1) % 2 != 0 else None for n in range(num_count)]
     print(max_row)
-    odd_nums = list(filter(lambda x: x is not None, max_row))
-    print(odd_nums)
+    odd_nums_list = list(filter(lambda x: x is not None, max_row))
+    print(odd_nums_list)
     list_rows = []
-    for row in range(len(odd_nums)):
-        list_rows.append(odd_nums[:row])
+    for row in range(n):
+        list_rows.append(odd_nums_list[:row + 1])
+        odd_nums_list = odd_nums_list[row + 1:]
+    print(list_rows)
+    sum = 0
+    for num in list_rows[-1]:
+        sum += num
+    return sum
 
 
-row_sum_odd_numbers(4)
+print(row_sum_odd_numbers(41))
