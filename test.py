@@ -242,10 +242,17 @@ def fabonacci(n):
 def factorial(x):
     if x == 1:
         return 1
-    return x + factorial(x - 1)
+    return x * factorial(x - 1)
 
 
-print(factorial(5))
+factorial(20)
+
+
+# print(factorial(18))
+# print(factorial(19))
+# print(factorial(20))
+# print(factorial(15))
+# print(factorial(10))
 
 
 def comp(array1, array2):
@@ -257,13 +264,63 @@ def comp(array1, array2):
 
 a1 = [121, 144, 19, 161, 19, 144, 19, 11]
 a2 = [11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19]
-print(comp(a1, a2), True)
+# print(comp(a1, a2), True)
 a1 = [121, 144, 19, 161, 19, 144, 19, 11]
 a2 = [11 * 21, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19]
-print(comp(a1, 2), False)
+# print(comp(a1, 2), False)
 a1 = [121, 144, 19, 161, 19, 144, 19, 11]
 a2 = [11 * 11, 121 * 121, 144 * 144, 190 * 190, 161 * 161, 19 * 19, 144 * 144, 19 * 19]
-print(comp(a1, a2), False)
+# print(comp(a1, a2), False)
 a1 = [2, 2, 3]
 a2 = [4, 9, 9]
-print(comp(a1, a2), False)
+
+
+# print(comp(a1, a2), False)
+
+#
+# strarr = ["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"], k = 2
+#
+# Concatenate the consecutive strings of strarr by 2, we get:
+#
+# treefoling   (length 10)  concatenation of strarr[0] and strarr[1]
+# folingtrashy ("      12)  concatenation of strarr[1] and strarr[2]
+# trashyblue   ("      10)  concatenation of strarr[2] and strarr[3]
+# blueabcdef   ("      10)  concatenation of strarr[3] and strarr[4]
+# abcdefuvwxyz ("      12)  concatenation of strarr[4] and strarr[5]
+#
+# Two strings are the longest: "folingtrashy" and "abcdefuvwxyz".
+# The first that came is "folingtrashy" so
+# longest_consec(strarr, 2) should return "folingtrashy".
+#
+# In the same way:
+# longest_consec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2) --> "abigailtheta"
+
+def longest_consec(strarr, k):
+    if len(strarr) == 0 or k < 0 or k > len(strarr) :
+        return ''
+    new_list = []
+    for i in range(len(strarr)):
+        str_conc = ''
+
+        for i_conc in range(k):
+            if len(strarr) > (i + i_conc):
+                str_conc += strarr[i + i_conc]
+        new_list.append(str_conc)
+
+    new_list = sorted(new_list, key=lambda x: len(x), reverse=True)
+
+    return new_list[0]
+
+
+print(longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 2), "abigailtheta")
+print(longest_consec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1),
+      "oocccffuucccjjjkkkjyyyeehh")
+print(longest_consec([], 3), "")
+print(longest_consec(["itvayloxrp", "wkppqsztdkmvcuwvereiupccauycnjutlv", "vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2),
+      "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")
+print(longest_consec(["wlwsasphmxx", "owiaxujylentrklctozmymu", "wpgozvxxiu"], 2), "wlwsasphmxxowiaxujylentrklctozmymu")
+print(longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], -2), "")
+print(longest_consec(["it", "wkppv", "ixoyx", "3452", "zzzzzzzzzzzz"], 3), "ixoyx3452zzzzzzzzzzzz")
+print(longest_consec(["it", "wkppv", "ixoyx", "3452", "zzzzzzzzzzzz"], 15), "")
+print(longest_consec(["it", "wkppv", "ixoyx", "3452", "zzzzzzzzzzzz"], 0), "")
+print(longest_consec(['hlffffsssa', 'xxvvvvoo', 'bbbbbyynqqq', 'tttttpppyyzzz', 'iihhkkkddeeejjj', 'bbbmmkkkkkklljmmmuhhh', 'nnqqyyqqq', 'aaazzwrrii', 'bblaa', 'szzzuaxxxhr', 'qqssst', 'llwwwmmmzzzrppibbb', 'qqqirii', 'sssiooo', 'prpppccc', 'xxeeerssjddeee', 'tkdzvbbb', 'hhhaaauzzm', 'vfdddnn', 'dmggi', 'nsssxxweejwww', 'dqqggghafccc', 'kkvxx', 'hhhnsjjmm', 'mmllmmhn', 'ccqqzzcc', 'zzzqqkkkvvv', 'suuupppiffhh', 'ueuuubbbis', 'dddrrrcccmmmccc', 'fffoppdddaarr', 'dyyfqqq', 'zwwwiipiiixx', 'wwwjjqqqwwwww', 'llddqq', 'jjjuiiqqq', 'oqqxxxccrr', 'ooovvvrr', 'qqssxynn', 'hhhgggukkrhh', 'nnnppkkknbbpp', 'yyyllhhppphhq', 'ddfssseeeooejj', 'aaawwwwwzfffvzzz', 'cjlllllljjcccttdd', 'ddddzzz', 'oottccc', 'aabddvvv', 'rrrjr', 'gggcsscqqqjjjqq', 'dggkk', 'kkgggiuaauuf', 'nssslllqxxx', 'llqhhhbpppll', 'bhhhgggrrwss', 'ffwwwhhoobbib', 'ffttts', 'aadddaaaxh', 'uuuccgggr', 'unngg', 'yzzqqq', 'mmrrkkttjj', 'lllzzdnnnqqq', 'whbbfffyyaaa', 'iiiqeeeuuqqq', 'lllfftt', 'rrrddddddnnlll', 'hhhppuutrrrttt', 'kfsshhhattb', 'esssfqqiinnity', 'iidddeeewoo', 'ufffayyyc', 'ycccqqrfff', 'lewwggpppqkk', 'ddmggdeet', 'kkffxxkkkcqqvvv', 'nnnhhuuunn', 'yyykkmmrncxdddcc', 'rroodvh', 'wwkkkdaaarrr', 'dddxrxxx', 'pptttdfj', 'qqqpppimmm', 'aaayybbwbbddmm', 'kkkkkrr', 'bbiiinnnhhxxxbd', 'mrrrqq', 'xppxxxwwcguwv', 'jsseewwweee', 'ddxxxvvvvvggk', 'cmmmyydddqqquiiik', 'siifffdddrrrqqq', 'fffcciiioo', 'vvvbbjmcmmmjl', 'ggbbpppr', 'bbrrrhhllbqqq', 'keejjjeeett', 'kkkuuuhhhvvvooto', 'weeehhv', 'zzzjjjvvyzzz', 'fffnnnjjjw', 'appstttttt', 'kkaaaxyu', 'siioonnnnnn', 'dwwwnnnffrrzzznnnj', 'tfftthhlll', 'ssvvvhddoffo', 'fffhooocsssqb', 'sssggcccx', 'nnnjvvvhuuo', 'ppprrhfffapbbt', 'hhhoiyyyxxx', 'yyyfffpll', 'vvgaaauuu', 'uummmvn', 'uuxxxriiijk', 'eeehhhxcccoooll', 'aoooeffyyy', 'ttwffpp', 'ooorrrnwwuujjjjj', 'ppvvvfffeennggfbb', 'xxbbbcccvvhhhmmmtnnn', 'wyyfffjj', 'mmmfffxxuccsss', 'qqqhyycdd', 'ssiiioz', 'tttlllbbbkkkb', 'mmmdhsssddd', 'xxxtttiqqq', 'dddkfffqqzzzdd', 'aqqqfvv', 'zzzmyybb', 'fftuuurwzff', 'hxxxddlllkk', 'vvvvvjj', 'sssgggss', 'cnnppffyyrrvv', 'xkkkpppgt', 'njjssvvvvy', 'dddtttkkf', 'yyyooojjdkk'], 124))
