@@ -235,10 +235,6 @@ def divided_by(num=None):
         return f"/ {num}"
 
 
-def fabonacci(n):
-    pass
-
-
 def factorial(x):
     if x == 1:
         return 1
@@ -296,7 +292,7 @@ a2 = [4, 9, 9]
 # longest_consec(["zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"], 2) --> "abigailtheta"
 
 def longest_consec(strarr, k):
-    if len(strarr) == 0 or k < 0 or k > len(strarr) :
+    if len(strarr) == 0 or k < 0 or k > len(strarr):
         return ''
     new_list = []
     for i in range(len(strarr)):
@@ -324,3 +320,46 @@ def longest_consec(strarr, k):
 # print(longest_consec(["it", "wkppv", "ixoyx", "3452", "zzzzzzzzzzzz"], 15), "")
 # print(longest_consec(["it", "wkppv", "ixoyx", "3452", "zzzzzzzzzzzz"], 0), "")
 # print(longest_consec(['hlffffsssa', 'xxvvvvoo', 'bbbbbyynqqq', 'tttttpppyyzzz', 'iihhkkkddeeejjj', 'bbbmmkkkkkklljmmmuhhh', 'nnqqyyqqq', 'aaazzwrrii', 'bblaa', 'szzzuaxxxhr', 'qqssst', 'llwwwmmmzzzrppibbb', 'qqqirii', 'sssiooo', 'prpppccc', 'xxeeerssjddeee', 'tkdzvbbb', 'hhhaaauzzm', 'vfdddnn', 'dmggi', 'nsssxxweejwww', 'dqqggghafccc', 'kkvxx', 'hhhnsjjmm', 'mmllmmhn', 'ccqqzzcc', 'zzzqqkkkvvv', 'suuupppiffhh', 'ueuuubbbis', 'dddrrrcccmmmccc', 'fffoppdddaarr', 'dyyfqqq', 'zwwwiipiiixx', 'wwwjjqqqwwwww', 'llddqq', 'jjjuiiqqq', 'oqqxxxccrr', 'ooovvvrr', 'qqssxynn', 'hhhgggukkrhh', 'nnnppkkknbbpp', 'yyyllhhppphhq', 'ddfssseeeooejj', 'aaawwwwwzfffvzzz', 'cjlllllljjcccttdd', 'ddddzzz', 'oottccc', 'aabddvvv', 'rrrjr', 'gggcsscqqqjjjqq', 'dggkk', 'kkgggiuaauuf', 'nssslllqxxx', 'llqhhhbpppll', 'bhhhgggrrwss', 'ffwwwhhoobbib', 'ffttts', 'aadddaaaxh', 'uuuccgggr', 'unngg', 'yzzqqq', 'mmrrkkttjj', 'lllzzdnnnqqq', 'whbbfffyyaaa', 'iiiqeeeuuqqq', 'lllfftt', 'rrrddddddnnlll', 'hhhppuutrrrttt', 'kfsshhhattb', 'esssfqqiinnity', 'iidddeeewoo', 'ufffayyyc', 'ycccqqrfff', 'lewwggpppqkk', 'ddmggdeet', 'kkffxxkkkcqqvvv', 'nnnhhuuunn', 'yyykkmmrncxdddcc', 'rroodvh', 'wwkkkdaaarrr', 'dddxrxxx', 'pptttdfj', 'qqqpppimmm', 'aaayybbwbbddmm', 'kkkkkrr', 'bbiiinnnhhxxxbd', 'mrrrqq', 'xppxxxwwcguwv', 'jsseewwweee', 'ddxxxvvvvvggk', 'cmmmyydddqqquiiik', 'siifffdddrrrqqq', 'fffcciiioo', 'vvvbbjmcmmmjl', 'ggbbpppr', 'bbrrrhhllbqqq', 'keejjjeeett', 'kkkuuuhhhvvvooto', 'weeehhv', 'zzzjjjvvyzzz', 'fffnnnjjjw', 'appstttttt', 'kkaaaxyu', 'siioonnnnnn', 'dwwwnnnffrrzzznnnj', 'tfftthhlll', 'ssvvvhddoffo', 'fffhooocsssqb', 'sssggcccx', 'nnnjvvvhuuo', 'ppprrhfffapbbt', 'hhhoiyyyxxx', 'yyyfffpll', 'vvgaaauuu', 'uummmvn', 'uuxxxriiijk', 'eeehhhxcccoooll', 'aoooeffyyy', 'ttwffpp', 'ooorrrnwwuujjjjj', 'ppvvvfffeennggfbb', 'xxbbbcccvvhhhmmmtnnn', 'wyyfffjj', 'mmmfffxxuccsss', 'qqqhyycdd', 'ssiiioz', 'tttlllbbbkkkb', 'mmmdhsssddd', 'xxxtttiqqq', 'dddkfffqqzzzdd', 'aqqqfvv', 'zzzmyybb', 'fftuuurwzff', 'hxxxddlllkk', 'vvvvvjj', 'sssgggss', 'cnnppffyyrrvv', 'xkkkpppgt', 'njjssvvvvy', 'dddtttkkf', 'yyyooojjdkk'], 124))
+
+def fibonacci(n):
+    list_out = [0, 1]
+    for i in range(n):
+        item_append = list_out[-1] + list_out[-2]
+        list_out.append(item_append)
+    return list_out
+
+
+def fibonacci_rec(n):
+    if n in {0, 1}:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+def fibonacci_of(n):
+    if n in {0, 1}:  # Base case
+        return n
+    return fibonacci_of(n - 1) + fibonacci_of(n - 2)
+
+print([fibonacci_of(n) for n in range(15)])
+print([fibonacci_rec(n) for n in range(15)])
+
+
+def tribonacci(signature, n):
+    # test.describe("Basic tests")
+    for cci in range(n):
+        pass
+
+
+print(tribonacci([1, 1, 1], 10), [1, 1, 1, 3, 5, 9, 17, 31, 57, 105])
+print(tribonacci([0, 0, 1], 10), [0, 0, 1, 1, 2, 4, 7, 13, 24, 44])
+print(tribonacci([0, 1, 1], 10), [0, 1, 1, 2, 4, 7, 13, 24, 44, 81])
+print(tribonacci([1, 0, 0], 10), [1, 0, 0, 1, 1, 2, 4, 7, 13, 24])
+print(tribonacci([0, 0, 0], 10), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+print(tribonacci([1, 2, 3], 10), [1, 2, 3, 6, 11, 20, 37, 68, 125, 230])
+print(tribonacci([3, 2, 1], 10), [3, 2, 1, 6, 9, 16, 31, 56, 103, 190])
+print(tribonacci([1, 1, 1], 1), [1])
+print(tribonacci([300, 200, 100], 0), [])
+print(tribonacci([0.5, 0.5, 0.5], 30),
+      [0.5, 0.5, 0.5, 1.5, 2.5, 4.5, 8.5, 15.5, 28.5, 52.5, 96.5, 177.5, 326.5, 600.5, 1104.5, 2031.5,
+       3736.5, 6872.5, 12640.5, 23249.5, 42762.5, 78652.5, 144664.5, 266079.5, 489396.5, 900140.5,
+       1655616.5, 3045153.5, 5600910.5, 10301680.5])
